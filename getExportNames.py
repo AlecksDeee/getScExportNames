@@ -1,5 +1,3 @@
-
-
 def checkMagicNumber(filename):
     with open(filename,"rb") as file:
         if file.read(2) == b'\x53\x43':
