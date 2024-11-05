@@ -17,10 +17,10 @@ def GetExportNames(filename):
             start_index = bytes.find(pattern, start_index)
             if start_index == -1:
                 break
-            read_index = start_index + len(pattern) + 20
+            read_index = start_index + len(pattern) + 20 # after pattern, skipping 20 bytes
             export_name = bytearray()
             while read_index < len(bytes):
-                if bytes[read_index:read_index + 1] == b'\x00':
+                if bytes[read_index:read_index + 1] == b'\x00': # reads until \x00
                     break
                 export_name.extend(bytes[read_index:read_index + 1])
                 read_index += 1
